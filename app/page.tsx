@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import CursorWave from "@/components/CursorWave";
 import CreditCard from "@/components/CreditCard";
+import CreditCardForm from "@/components/CreditCardForm";
 import { ArrowRight, Github } from "lucide-react";
 
 export default function Page() {
@@ -55,21 +56,25 @@ export default function Page() {
 
       {/* Demo */}
       <section id="demo" className="relative z-20 mx-auto max-w-6xl px-6 pb-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           <div className="flex items-center justify-center">
             <CreditCard />
           </div>
-          <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-semibold">Interactive 3D tilt</h2>
+          <div className="space-y-4 lg:col-span-1">
+            <h2 className="text-2xl md:text-3xl font-semibold">Interactive Features</h2>
             <p className="text-gray-300">
-              Move your cursor over the card and feel the subtle 3D tilt & glossy shine.
-              The background features a layered gradient and the mouse leaves a glowing wave behind it.
+              Experience real-time credit card validation with advanced features including Luhn algorithm verification, card type detection, and comprehensive input validation.
             </p>
             <ul className="list-disc list-inside text-gray-300">
-              <li>Responsive, glassy UI</li>
-              <li>Cursor-trailing wave (Canvas)</li>
-              <li>Smooth animations (Framer Motion)</li>
+              <li>Real-time card validation</li>
+              <li>Automatic card type detection</li>
+              <li>Expiry date & CVV validation</li>
+              <li>Interactive 3D card tilt</li>
+              <li>Cursor-trailing wave effect</li>
             </ul>
+          </div>
+          <div className="lg:col-span-1">
+            <CreditCardForm />
           </div>
         </div>
       </section>
@@ -78,9 +83,9 @@ export default function Page() {
       <section id="features" className="relative z-20 mx-auto max-w-6xl px-6 pb-24">
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            ["Next.js 14", "App Router, fast by default"],
-            ["Tailwind CSS", "Utility-first styling for rapid iteration"],
-            ["Framer Motion", "Orchestrated, buttery animations"]
+            ["Card Validation", "Luhn algorithm & real-time verification"],
+            ["Type Detection", "Supports Visa, Mastercard, Amex & more"],
+            ["Security First", "Client-side validation with visual feedback"]
           ].map(([title, desc]) => (
             <div key={title} className="glass rounded-2xl p-6">
               <h3 className="text-xl font-semibold">{title}</h3>

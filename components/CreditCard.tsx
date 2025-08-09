@@ -7,7 +7,8 @@ type Props = {
   name?: string;
   number?: string;
   expiry?: string;
-  brand?: "VISA" | "MASTERCARD" | "RUPAY" | "AMEX";
+  brand?: string;
+  cardType?: string;
 };
 
 export default function CreditCard({
@@ -15,6 +16,7 @@ export default function CreditCard({
   number = "4242 4242 4242 4242",
   expiry = "12/29",
   brand = "VISA",
+  cardType,
 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
   const x = useMotionValue(0);
@@ -50,7 +52,7 @@ export default function CreditCard({
       <div className="relative z-10 p-6 flex flex-col justify-between h-full">
         <div className="flex items-center justify-between">
           <div className="text-sm uppercase tracking-widest text-cyan-200">credit</div>
-          <div className="text-2xl font-bold">{brand}</div>
+          <div className="text-2xl font-bold">{cardType || brand}</div>
         </div>
         <div className="space-y-3">
           <div className="text-xl tracking-widest">{number}</div>
